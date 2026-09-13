@@ -1,0 +1,15 @@
+name: Feature request
+description: A message type, webhook field or API you need
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need?
+      description: Link Meta's documentation for the feature if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case

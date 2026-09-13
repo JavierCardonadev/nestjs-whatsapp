@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/JavierCardonadev/nestjs-whatsapp/security/advisories/new
+    about: Report privately, please.
+  - name: Hire the maintainer
+    url: https://javiercardona.dev
+    about: WhatsApp chatbots, notifications and NestJS backends.

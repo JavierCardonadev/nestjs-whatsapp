@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run typecheck
+      - run: npm run test:cov
+      - run: npm run build
+
+  nest11:
+    name: NestJS 11 compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save @nestjs/common@^11 @nestjs/core@^11 @nestjs/platform-express@^11 @nestjs/testing@^11
+      - run: npx vitest run test/nest.spec.ts
+
+  package:
+    name: Package smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm pack
+      - name: Core entry works without optional peers
+        run: |
+          mkdir /tmp/core && cd /tmp/core
+          npm init -y >/dev/null
+          npm install "$GITHUB_WORKSPACE"/nestjs-whatsapp-*.tgz
+          node --input-type=module -e "import { WhatsAppClient, textMessage } from 'nestjs-whatsapp/core'; new WhatsAppClient({ accessToken: 't', phoneNumberId: '1' }); if (textMessage('+573001234567', 'hi').type !== 'text') process.exit(1); console.log('core ok')"
+      - name: Full entry works from ESM and CommonJS
+        run: |
+          mkdir /tmp/full && cd /tmp/full
+          npm init -y >/dev/null
+          npm install "$GITHUB_WORKSPACE"/nestjs-whatsapp-*.tgz @nestjs/common @nestjs/core reflect-metadata rxjs
+          node --input-type=module -e "import 'reflect-metadata'; const m = await import('nestjs-whatsapp'); if (!m.WhatsAppModule || !m.OnWhatsAppMessage) process.exit(1); console.log(Object.keys(m).length, 'exports')"
+          node -e "require('reflect-metadata'); const m = require('nestjs-whatsapp'); if (!m.WhatsAppClient) process.exit(1); console.log('require(esm) ok')"

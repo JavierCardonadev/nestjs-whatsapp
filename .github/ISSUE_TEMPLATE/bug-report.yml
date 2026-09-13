@@ -1,0 +1,28 @@
+name: Bug report
+description: Something doesn't work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste access tokens, app secrets, real phone numbers or message content.** Redact payloads.
+        Security issue? Use [private reporting](https://github.com/JavierCardonadev/nestjs-whatsapp/security/advisories/new).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Expected vs actual. For API errors include `code`, `details` and `fbtraceId` from WhatsAppApiError.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Code or redacted webhook payload
+      render: ts
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: nestjs-whatsapp 0.1.0, Graph API v26.0, @nestjs/core 12.0.1, Node 22.20
+    validations:
+      required: true
