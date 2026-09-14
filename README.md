@@ -246,7 +246,7 @@ WhatsApp Flows helpers, typed contacts and carousel builders, multi-number routi
 
 ## Need help with WhatsApp or a LATAM product?
 
-I'm Javier Cardona, a full-stack developer in Colombia. I build WhatsApp chatbots, notification pipelines and the backends around them — payments, e-invoicing and integrations for Latin America. See also [nestjs-latam-payments](https://github.com/JavierCardonadev/nestjs-latam-payments) and [nestjs-intl-validators](https://github.com/JavierCardonadev/nestjs-intl-validators).
+I'm Javier Cardona, a full-stack developer in Colombia. I build WhatsApp chatbots, notification pipelines and the backends around them — payments, e-invoicing and integrations for Latin America. See also [nestjs-latam-payments](https://github.com/JavierCardonadev/nestjs-latam-payments), [nestjs-einvoicing](https://github.com/JavierCardonadev/nestjs-einvoicing), [nestjs-intl-validators](https://github.com/JavierCardonadev/nestjs-intl-validators) and [nestjs-shipping](https://github.com/JavierCardonadev/nestjs-shipping).
 
 👉 **[javiercardona.dev](https://javiercardona.dev)**
 

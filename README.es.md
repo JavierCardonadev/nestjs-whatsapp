@@ -217,7 +217,7 @@ Helpers para WhatsApp Flows, constructores tipados de contactos y carruseles, en
 
 ## ¿Necesitas ayuda con WhatsApp o un producto para LATAM?
 
-Soy Javier Cardona, desarrollador full-stack en Colombia. Construyo chatbots de WhatsApp, sistemas de notificaciones y los backends a su alrededor: pagos, facturación electrónica e integraciones para Latinoamérica. Mira también [nestjs-latam-payments](https://github.com/JavierCardonadev/nestjs-latam-payments) y [nestjs-intl-validators](https://github.com/JavierCardonadev/nestjs-intl-validators).
+Soy Javier Cardona, desarrollador full-stack en Colombia. Construyo chatbots de WhatsApp, sistemas de notificaciones y los backends a su alrededor: pagos, facturación electrónica e integraciones para Latinoamérica. Mira también [nestjs-latam-payments](https://github.com/JavierCardonadev/nestjs-latam-payments), [nestjs-einvoicing](https://github.com/JavierCardonadev/nestjs-einvoicing), [nestjs-intl-validators](https://github.com/JavierCardonadev/nestjs-intl-validators) y [nestjs-shipping](https://github.com/JavierCardonadev/nestjs-shipping).
 
 👉 **[javiercardona.dev](https://javiercardona.dev)**
 
